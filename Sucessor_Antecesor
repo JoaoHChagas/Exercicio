@@ -1,0 +1,15 @@
+package com.mycompany.sucessor_antecessor;
+
+import java.util.Scanner;
+
+public class Sucessor_Antecessor {
+    
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner (System.in);
+        System.out.println("Digite um numero:");
+        int numero = teclado.nextInt();
+        System.out.println("O conteudo da variavel numero e:" + numero);     
+        System.out.println("O Antecessor:" + (numero - 1));       
+        System.out.println("O Sucessor:" + (numero + 1));
+    }
+}
