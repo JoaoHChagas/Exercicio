@@ -1,20 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package conexaobd01;
 
-/**
- *
- * @author 1012510497
- */
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Connection;
+
 public class ConexaoBD01 {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+     public static Connection conectar() {
+    Connection conexao = null;
+    String url = "jdbc:mysql://localhost:3306/db_teste";
+    String user = "root";
+    String password = "";
+
+    try {
+        conexao = DriverManager.getConnection(url, user, password);
+        System.out.println("conexão estabelecida com sucesso");
+    } catch (SQLException e) {
+        System.out.println("Erro ao conectar");
     }
+
+    return conexao;
+}
+
+public static void criarTabela() {
+    String sql = "CREATE TABLE IF NOT EXISTS clientes(" +
+            "id INT AUTO_INCREMENT PRIMARY KEY," +
+            "nome VARCHAR(100) NOT NULL," +
+            "email VARCHAR(100) UNIQUE," +
+            "senha VARCHAR(50) NOT NULL" +
+            ")";
+}
+
+public static void main(String[] args) {
     
 }
+}
+// Link do mysql ==> 🔗 https://dev.mysql.com/downloads/connector/j/
